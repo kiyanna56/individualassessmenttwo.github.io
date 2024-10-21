@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head> 
+        <title> 
+            INDIVIDUAL ASSSSEMENT TWO
+        </title>
+
+        <link rel="stylesheet" href="styling.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/JavaScript">
+    
+            let Attempts = 0;  // this will be used to track the amount of attemts a use make/have left
+    
+            function validateLogin(event) 
+            {
+                event.preventDefault();  // Prevent the form from submitting by default which means subitting without the validation check
+
+                const username = document.getElementById("username").value; //retrieves the information that they use logs into the fields.
+                const password = document.getElementById("passcode").value;
+    
+                const correctUsername = "Armstrong"; // set the username and password to these values
+                const correctPassword = "wEbdeVel";
+    
+                if (username === correctUsername && password === correctPassword) 
+                { //checks the user input againsts the expected input
+                    window.location.href="productservice.html"; // if the user input it correct, they are redirected to the product page
+                } 
+                else 
+                {
+                    Attempts++;  // increments each time the user enters an incorrect password or username
+                    const remainingAttempts = 3 - Attempts; // tell the customer how much attemp they have left
+                    alert("Invalid login. You have " + remainingAttempts + " attempt(s) left.");
+    
+                    if (Attempts >= 3) 
+                    {
+                        window.location.href="Error-Page.html"; //sends user to the error page if login is invalid three times
+                    }
+                }
+            }
+        </script>
+        
+        <a href="about-us.html" target="_blank"> <div class="h4" style="font-size: larger;"  > <h4> About us</h4> </div> </a>
+        
+    </head>
+
+<body style="background-image: url('../images/green.jpg');" > 
+    <img src="../images/logo.png" height="200" width="300" alt="Logo"/>
+
+    <div class="fieldset">
+       <form name="login-page" action="/login" method="post"  onsubmit="validateLogin(event)">
+            <fieldset>
+                <h2> Login here </h2> <br> 
+                <label for="username"> Enter your username</label>
+                <input type="text" id="username" name="username" required maxlength="20" minlength="5" placeholder="Armstrong@123"> <br> <br>
+                <label for="password"> Password </label> 
+                <input type="password" id="passcode" name="passcode" required minlength="8" placeholder="wEbdeV!!@2024"> <br> <br>
+                 <button type="submit">Login</button> 
+            </fieldset> 
+         </form> 
+    </div> 
+    
+    <br> <br> </br>
+        <div class="social-icon"> 
+            <a href="https://www.instagram.com/perfecta_cosmetics_skincare/" target="_blank"> 
+                <img src="../images/Instagram_logo.png" alt="Instagram" height="50" width="50" /> 
+            </a> 
+            <a href="https://www.tiktok.com/@perfecta_cosmetics" target="_blank">
+                <img src="../images/tiktok.jpg" alt="TIKTOK" height="50" width="50" /> 
+            </a> 
+            <a href="https://www.facebook.com/Perfectacosmeticsandskincare" target="_blank"> 
+                <img src="../images/facebook.png" alt="fACEBOOK" height="50" width="50" /> 
+            </a> <br> <br>
+
+            <footer class="copyright"> 
+                &copy; 2024 Kiyanna Wright. All Rights Reserved.
+            </footer>
+        </div>
+        
+
+    </body>
+
+</html>
