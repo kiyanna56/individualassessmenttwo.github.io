@@ -1,0 +1,132 @@
+/* Apply the background image to the entire body */
+body {
+      
+     background-size: cover; 
+     background-position: right; /* Centers the image */
+     background-repeat: no-repeat; /* Prevents the image from repeating */
+ }
+
+fieldset
+{
+     background-color: rgb(224, 230, 224);
+     height: 80%;
+     width:30% ;
+     text-align: center;
+     margin: 0 auto;
+     border-radius: 5%; 
+     top: 10px;;
+
+}
+
+ .social-icon
+ {
+     align-items: center;
+     justify-content: center;
+     position: absolute;
+     bottom: 5px;
+     left: 38%;
+     display: block;
+     transition: all 0.3s ease;
+     filter: brightness(130%);
+ }
+
+ .social-icon a {
+     margin: 0 30px; /* adds space between the social media icons */
+     display: inline-block; /* Ensure the anchors behave like inline-block elements */
+ }
+ 
+ .para
+ {
+     font-size: larger;
+     font-family: 'Times New Roman', Times, serif;
+     font: bold;
+     text-align: center;
+ }
+
+.h4
+{
+   
+     height: 65%;
+     width:56%;
+     text-align: right;
+     font: bold;
+     top: 10;
+   
+}
+
+.h1
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    margin-top: 0%;
+    text-align: center;
+    text-decoration-color: chartreuse;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.product {
+    width: 22%;
+    margin-bottom: 20px;
+    text-align: center;
+    margin: 0 30px;
+}
+
+.product img {
+    width: 250px; /* Set a consistent width for the images */
+    height:250px; /* Set a consistent height for the images */
+    object-fit: cover; /* Crop/scale image to fit */
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.video-container
+{
+    width: 300px; /* Set a consistent width for the images */
+    height: 300px; /* Set a consistent height for the images */
+    object-fit: cover; /* Crop/scale image to fit */
+    margin-bottom: 10px;
+}
+
+.button-container
+{
+    text-align: center;
+    color: silver;
+    bottom: 300px;
+   font-family: 'Times New Roman', Times, serif;
+    bottom:0%;
+}
+
+.table
+{
+    width: 100%;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+
+

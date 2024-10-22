@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Invoice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling.css">
+</head>
+
+<body style="background-color: #ccffe6">
+
+        <img src="../images/logo.png" height="200" width="300" alt="Logo"/> 
+
+    <div class="h1"> <h1>Invoice</h1>  </div>  
+    <table border="1" id="invoiceTable" class="table">  <!-- table to display order information -->
+        <thead>
+            <tr>
+                <th >Product</th>
+                <th>Price (JMD)</th>
+                <th>Quantity</th>
+                <th>Total (JMD)</th>
+            </tr>
+        </thead>
+        <tbody id="invoiceBody">
+            <!-- product will eb automatically added here based on customers order -->
+        </tbody>
+    </table>
+
+            <h4>Subtotal: <span id="Subtotal">0.00</span> JMD</h4>
+            <h4>Tax (15%): <span id="taxAmount">0.00</span> JMD</h4>
+            <h4>Grand Total: <span id="grandTotal">0.00</span> JMD</h4>
+    
+        <div class="button-container">
+            <button onclick="Back()">  Back</button> <!-- allows customer to return to the order page if they so choose-->
+            <button onclick="confirmOrder()">Confirm Order</button> <!-- customers confirm their order -->
+        </div>
+    
+    <script>
+        function loadInvoice() 
+        {  //gets the information from the browsers local storage
+            let products = JSON.parse(localStorage.getItem('selectedProducts'));
+            let Subtotal = parseFloat(localStorage.getItem('Subtotal'));
+            let invoiceBody = document.getElementById('invoiceBody');
+
+            // Populate the invoice table with the selected products
+            products.forEach(function(product) 
+            { //loops through to populate the table with the customers orders/selected products
+                let row = document.createElement('tr');
+
+                let productNameCell = document.createElement('td');
+                productNameCell.textContent = product.name;
+
+                let productPriceCell = document.createElement('td');
+                productPriceCell.textContent = product.price.toFixed(2);
+
+                let quantityCell = document.createElement('td');
+                quantityCell.textContent = product.quantity;
+
+                let totalCell = document.createElement('td');
+                totalCell.textContent = (product.price * product.quantity).toFixed(2);
+
+                row.appendChild(productNameCell);
+                row.appendChild(productPriceCell);
+                row.appendChild(quantityCell);
+                row.appendChild(totalCell);
+
+                invoiceBody.appendChild(row);
+            });
+
+            document.getElementById('Subtotal').textContent = Subtotal.toFixed(2);
+            
+            let taxAmount = (Subtotal * 0.15).toFixed(2);
+            document.getElementById('taxAmount').textContent = taxAmount;
+
+            // Calculate and display the grand total
+            let grandTotal = (Subtotal + parseFloat(taxAmount)).toFixed(2);
+            document.getElementById('grandTotal').textContent = grandTotal;
+        }
+
+        // this allows the customer to confirm their order
+        function confirmOrder() 
+        {
+            alert("Your order has been confirmed!");
+            // Clear the local storage
+            localStorage.removeItem('selectedProducts');
+            localStorage.removeItem('Subtotal');
+        }
+
+        // customers have the opportunity to go back to the product page to eaither add or drop something
+        function Back() 
+        {
+            window.history.back();
+        }
+
+        // Load the invoice when the page is loaded
+        window.onload = loadInvoice;
+    </script>
+</body>
+</html>

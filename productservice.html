@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            Product and Service
+        </title>
+
+        <link rel="stylesheet" href="styling.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+
+<body style="background-color:gold">
+
+        <img src="../images/logo.png" height="200" width="300" alt="Logo"/> 
+
+    <div class="h1">
+        <h1>Welcome to Perfecta Cosmetics and Skincare</h1>
+        <h2>Where beauty meets affordability</h2>
+    </div>
+    
+    <form name="productdetails">
+        <div class="product-container">
+            <div class="product">
+                <img src="../images/soap.jpg" alt="soap"/>
+                <p class="description"> 10 mixed soaps: These soaps help with eczema,darkspots,acne,hyperpigmentation,
+                    as well as exfoliate the skin. </p>
+                <p class="price"> $4000 JMD</p>
+                <label> <input type="checkbox" name="selectProduct" value="product1"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/kojic.jpg" alt="kojic"/>
+                <p class="description">Kojic acid: Removes dark spots, helps with hyperpigmentation, brighten skins</p>
+                <p class="price"> $1000 JMD </p>
+                <label> <input type="checkbox" name="selectProduct" value="producttwo"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/kojic serum.jpg" alt="kojic_serum"/>
+                <p class="description"> Kojic Acid Serum: This serum helps remove dark spors and acne scarring and helps with skin brightening </p>
+                <p class="price">$1500</p>
+                <label> <input type="checkbox" name="selectProduct" value="productthree"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+    
+            </div>
+    
+            <div class="product">
+                <img src="../images/serum.jpg" alt="serum"/>
+                <p class="description"> Skin brighting serum: Helps with hyperpigmentation,darkness between thigh as well as remove dark spots </p>
+                <p class="price"> $1200 </p>
+                <label> <input type="checkbox" name="selectProduct" value="productfour"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/pretty bottle.jpg" alt="oil"/>
+                <p class="description"> Face treatment serum: Helps with acne,scars,wrinkles,blackspot and SPF. Works for all skin type </p>
+                <p class="price"> $2000</p>
+                <label> <input type="checkbox" name="selectProduct" value="productfive"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/veet1.jpg" alt="oil"/>
+                <p class="description"> Veet Gold SPF15: Protects skin from sunlight, fades hyperpigmentation, clear sunburn, even skin tone 1000ml </p>
+                <p class="price"> $15000</p>
+                <label> <input type="checkbox" name="selectProduct" value="productsix"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product"> 
+                <img src="../images/veet2.jpg" alt="oil"/>
+                <p class="description"> Veet Gold SPF 15: Protects skin from sunlight, fades dark spot, lighten skin,under arm 1000ml </p>
+                <p class="price"> $15000 </p>
+                <label> <input type="checkbox" name="selectProduct" value="productseven"> Select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/veet3.jpg" alt="oil"/>
+                <p class="description"> Tumeric Oil: Clears Knukles, dark underarms,blackspot anti-aging 1000ml. </p>
+                <p class="price"> $15000</p>
+                <label> <input type="checkbox" name="selectProduct" value="producteight"> select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label> 
+            </div>
+    
+            <div class="product">
+                <img src="../images/bath and body work.jpg" alt="bath"/>
+                <p class="description"> Black Berry Vanilla: Bath and Body work set. Elevate your scent with this exquisite fragrance</p>
+                <p class="price">$3000 </p>
+                <label> <input type="checkbox" name="selectProduct" value="productnine"> select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+    
+            <div class="product">
+                <img src="../images/bath and body.jpg" alt="bathnbody"/>
+                <p class="description"> Waikiki </p>
+                <p class="price"> $3000</p>
+                <label> <input type="checkbox" name="selectProduct" value="productten"> select </label>
+                <label> Quantity: <input type="number" name="quantity" min="1" value="1"> </label>
+            </div>
+
+            <div class="product">
+                <video autoplay muted loop class="video-container">
+                    <source src="../images/tumeric.mp4" alt="video" type="video/mp4"/>
+                </video>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" onclick="checkOut()"> Check out</button> 
+           <button type="reset"> Cancel</button>
+           <button type="button" onclick="exitpage()"> Exitpage</button>
+       </div>
+    </form>
+
+    <script>
+        function checkOut() 
+        {
+            let selectedProducts = document.querySelectorAll('input[name="selectProduct"]:checked');
+            let products = [];             //creates an array to get all the selected products, price and their quantities
+            let Subtotal = 0;    // this variable will collect and store the total amount for all the products
+
+             if (selectedProducts.length === 0) 
+             { //validation check to ensure that the customer has atleast one product selected before they can check out
+            alert("Please select at least one product to proceed.");
+            return;
+            }
+
+            selectedProducts.forEach(function(product) 
+            {  //loops through the selected products
+                let productContainer = product.closest('.product');
+                let productName = productContainer.querySelector('.description').innerText; //retrives the product name from product container
+                let productPrice = parseFloat(productContainer.querySelector('.price').innerText.replace(/[^0-9.]/g, ''));//retrives the price 
+                let quantity = parseInt(productContainer.querySelector('input[name="quantity"]').value); //retrives the prodcut quantity
+
+                 products.push
+                ({ //adds the products to the array each new product added it pushed to the end of the existing array
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity
+                });
+
+                Subtotal += productPrice * quantity; // each time the loop is ran total amount is calaculated and stored
+            });
+
+                //localstorage.setitem saves data to the browsers local storage
+                //json.stringify converts javascript object or value insto java script object notation string. that can easily stored, transferred or shared
+                //total amount is stored on the local browser as well and is fixed to two decimal place
+                localStorage.setItem('selectedProducts', JSON.stringify(products));
+                localStorage.setItem('Subtotal', Subtotal.toFixed(2));
+
+                window.location.href = "invoice.html"; //when the customer clicks check out they will be redirected to the invoice page
+        }
+
+            function exitpage() 
+            { //creates a function that will be called when the customer want to exit
+                window.location.href = "Index.html";  // when the customer clicks exit it will take them back to the login page
+            }
+        
+    </script>
+</body>
+</html>
